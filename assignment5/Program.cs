@@ -46,4 +46,59 @@
     }
 
     #endregion
+
+    #region array question1
+
+ namespace Part2_Arrays
+    {
+        class Program
+        {
+            static void Main(string[] args)
+            {
+                Console.Write("Enter array size: ");
+                int size = int.Parse(Console.ReadLine());
+
+                int[] numbers = new int[size];
+
+                for (int i = 0; i < size; i++)
+                {
+                    Console.Write($"Enter element [{i}]: ");
+                    numbers[i] = int.Parse(Console.ReadLine());
+                }
+
+                int sum = 0;
+                int max = numbers[0];
+                int min = numbers[0];
+
+                for (int i = 0; i < size; i++)
+                {
+                    sum += numbers[i];
+
+                    if (numbers[i] > max)
+                        max = numbers[i];
+
+                    if (numbers[i] < min)
+                        min = numbers[i];
+                }
+
+                double average = (double)sum / size;
+
+                Console.WriteLine($"\nSum     = {sum}");
+                Console.WriteLine($"Average = {average}");
+                Console.WriteLine($"Max     = {max}");
+                Console.WriteLine($"Min     = {min}");
+
+                Console.Write("Reverse = ");
+                for (int i = size - 1; i >= 0; i--)
+                {
+                    Console.Write(numbers[i]);
+                    if (i > 0)
+                        Console.Write(", ");
+                }
+            }
+        }
+    }
+
+
+    #endregion
 }
