@@ -101,4 +101,52 @@
 
 
     #endregion
+
+    #region array question2
+
+
+namespace Part2_Matrix
+    {
+        class Program
+        {
+            static void Main(string[] args)
+            {
+                int[,] grades = new int[3, 4];
+
+                // Read Grades
+                for (int i = 0; i < 3; i++)
+                {
+                    Console.WriteLine($"\nEnter grades for Student {i + 1}:");
+                    for (int j = 0; j < 4; j++)
+                    {
+                        Console.Write($"Subject {j + 1}: ");
+                        grades[i, j] = int.Parse(Console.ReadLine());
+                    }
+                }
+
+                double overallSum = 0;
+
+                // Calculate Averages
+                for (int i = 0; i < 3; i++)
+                {
+                    int studentSum = 0;
+
+                    for (int j = 0; j < 4; j++)
+                    {
+                        studentSum += grades[i, j];
+                    }
+
+                    double studentAvg = (double)studentSum / 4;
+                    overallSum += studentSum;
+
+                    Console.WriteLine($"Average of Student {i + 1} = {studentAvg}");
+                }
+
+                double classAverage = overallSum / (3 * 4);
+                Console.WriteLine($"\nOverall Class Average = {classAverage}");
+            }
+        }
+    }
+
+    #endregion
 }
