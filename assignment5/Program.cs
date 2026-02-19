@@ -149,4 +149,65 @@ namespace Part2_Matrix
     }
 
     #endregion
+
+    #region function question1
+
+  
+
+namespace Part3_Calculator
+    {
+        class Program
+        {
+            static void Main(string[] args)
+            {
+                Console.Write("Enter first number: ");
+                double num1 = double.Parse(Console.ReadLine());
+
+                Console.Write("Enter second number: ");
+                double num2 = double.Parse(Console.ReadLine());
+
+                Console.Write("Enter operation (+, -, *, /): ");
+                char op = char.Parse(Console.ReadLine());
+
+                double result = 0;
+
+                switch (op)
+                {
+                    case '+':
+                        result = Add(num1, num2);
+                        break;
+
+                    case '-':
+                        result = Subtract(num1, num2);
+                        break;
+
+                    case '*':
+                        result = Multiply(num1, num2);
+                        break;
+
+                    case '/':
+                        if (num2 == 0)
+                        {
+                            Console.WriteLine("Cannot divide by zero!");
+                            return;
+                        }
+                        result = Divide(num1, num2);
+                        break;
+
+                    default:
+                        Console.WriteLine("Invalid operation!");
+                        return;
+                }
+
+                Console.WriteLine($"Result = {result}");
+            }
+
+            static double Add(double a, double b) => a + b;
+            static double Subtract(double a, double b) => a - b;
+            static double Multiply(double a, double b) => a * b;
+            static double Divide(double a, double b) => a / b;
+        }
+    }
+
+    #endregion
 }
