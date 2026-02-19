@@ -210,4 +210,35 @@ namespace Part3_Calculator
     }
 
     #endregion
+
+    #region function question2
+
+  
+
+namespace Part3_Circle
+    {
+        class Program
+        {
+            static void Main(string[] args)
+            {
+                Console.Write("Enter radius: ");
+                double radius = double.Parse(Console.ReadLine());
+
+                double area, circumference;
+
+                CalculateCircle(radius, out area, out circumference);
+
+                Console.WriteLine($"Area = {area}");
+                Console.WriteLine($"Circumference = {circumference}");
+            }
+
+            static void CalculateCircle(double radius, out double area, out double circumference)
+            {
+                area = Math.PI * radius * radius;
+                circumference = 2 * Math.PI * radius;
+            }
+        }
+    }
+
+    #endregion
 }
