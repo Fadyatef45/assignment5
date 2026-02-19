@@ -241,4 +241,76 @@ namespace Part3_Circle
     }
 
     #endregion
+
+    #region project
+
+
+namespace StudentGradeManager
+    {
+        enum Grade
+        {
+            A, B, C, D, F
+        }
+
+        class Program
+        {
+            static void Main(string[] args)
+            {
+                int[] scores = new int[5];
+
+                for (int i = 0; i < 5; i++)
+                {
+                    Console.Write($"Enter score for Student {i + 1}: ");
+                    scores[i] = int.Parse(Console.ReadLine());
+                }
+
+                Console.WriteLine("\n--- Report ---");
+
+                for (int i = 0; i < 5; i++)
+                {
+                    Grade grade = GetGrade(scores[i]);
+                    Console.WriteLine($"Student {i + 1}: {scores[i]} -> Grade: {grade}");
+                }
+
+                double average = CalculateAverage(scores);
+                GetMinMax(scores, out int min, out int max);
+
+                Console.WriteLine($"\nAverage: {average}");
+                Console.WriteLine($"Highest Score: {max}");
+                Console.WriteLine($"Lowest Score:  {min}");
+            }
+
+            static Grade GetGrade(int score)
+            {
+                if (score >= 90) return Grade.A;
+                else if (score >= 80) return Grade.B;
+                else if (score >= 70) return Grade.C;
+                else if (score >= 60) return Grade.D;
+                else return Grade.F;
+            }
+
+            static double CalculateAverage(int[] scores)
+            {
+                int sum = 0;
+                foreach (int s in scores)
+                    sum += s;
+
+                return (double)sum / scores.Length;
+            }
+
+            static void GetMinMax(int[] scores, out int min, out int max)
+            {
+                min = scores[0];
+                max = scores[0];
+
+                foreach (int s in scores)
+                {
+                    if (s < min) min = s;
+                    if (s > max) max = s;
+                }
+            }
+        }
+    }
+
+    #endregion
 }
